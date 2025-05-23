@@ -9,11 +9,11 @@ on:
       buildType:
         description: "Build type"
         required: true
-        default: debug
+        default: Debug
         type: choice
         options:
-          - debug
-          - release
+          - Debug
+          - Release
 jobs:
   build:
     runs-on: macos-13
@@ -30,3 +30,13 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Build APK
+        run: |
+          ./gradlew assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
+          path: app/build/outputs/apk/debug/*.apk
