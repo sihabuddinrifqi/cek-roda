@@ -66,7 +66,6 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.analytics)
     kapt(libs.androidx.room.compiler)
 
     implementation(libs.viewmodel.compose)
